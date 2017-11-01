@@ -19,10 +19,16 @@ class App extends Component {
     state.isLoggedIn = true;
     this.setState(state);
   }
+  deleteItem = (movie) => {
+    const state = this.state;
+    const index = state.movies.indexOf(movie)
+    state.movies.splice(index, 1);
+    this.setState(state);
+  }
   render() {
     return (
       <div>
-        {this.state.isLoggedIn ?  <Movie movies={this.state.movies} username={this.state.username}/> :  <Login login={this.login}/>}
+        {this.state.isLoggedIn ?  <Movie movies={this.state.movies} username={this.state.username} remove={this.deleteItem}/> :  <Login login={this.login}/>}
 
       </div>
     );
