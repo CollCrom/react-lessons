@@ -5,9 +5,16 @@ class Movie extends Component {
     console.log(e.currentTarget.value)
     this.props.remove(e.currentTarget.value)
   }
+  editMovie = (e) => {
+    console.log(e.currentTarget.innerText)
+    this.props.showEdit(e.currentTarget.innerText)
+  }
   render() {
     const movies = this.props.movies.map((m, i) => {
-      return <li key={i}>{m} <button value={m} onClick={this.deleteMovie}>delete</button></li>
+      return <div key={i}>
+                <li onClick={this.editMovie}>{m}</li>
+                <button value={m} onClick={this.deleteMovie}>delete</button>
+              </div>
     })
     return (
       <div>

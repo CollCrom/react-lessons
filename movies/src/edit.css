@@ -1,0 +1,11 @@
+.Edit-Hidden {
+  display: none;
+}
+
+.Edit {
+  position: absolute;
+  left: 40%;
+  top: 18%;
+  background-color: orange;
+  color: white;
+}
